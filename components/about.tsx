@@ -67,9 +67,9 @@ export default function About() {
         <h2>Hi! My name is Frank! </h2>
         <p>
           I am a passionate and innovative web developer based in Czech
-          Republic. Ever since I laid hands on my first line of code, I've been
-          captivated by the boundless possibilities of the web. With a curious
-          mind and a desire to stay on the cutting edge of technology, I
+          Republic. Ever since I laid hands on my first line of code, I&apos;ve
+          been captivated by the boundless possibilities of the web. With a
+          curious mind and a desire to stay on the cutting edge of technology, I
           constantly seek new challenges that push my skills to the next level.
         </p>
       </AboutContent>
