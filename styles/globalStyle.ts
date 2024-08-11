@@ -43,7 +43,6 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    font-family: 'K2D', sans-serif;
     background-color: rgb(var(--black));
     color: rgb(var(--white));
   }

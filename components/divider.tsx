@@ -2,35 +2,40 @@
 
 import styled from "styled-components"
 
+const DividerContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1rem 0;
+`
+
 const DividerLine = styled.div`
-  width: 45%;
-  height: 1px;
-  background-color: rgba(var(--white), 0.5);
-  border: none;
+	width: 40%;
+	height: 1px;
+	background-color: rgb(var(--white));
+	border: none;
+
+	@media (min-width: 768px) {
+		width: 20%;
+	}
 `
 
 const DividerSquare = styled.div`
-  width: 1rem;
-  height: 1rem;
-  transform: rotate(45deg);
-  background-color: rgba(var(--white), 0.5);
-`
-
-const DividerContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
+	width: 1rem;
+	height: 1rem;
+	transform: rotate(45deg);
+	background-color: rgb(var(--white));
 `
 
 const Divider = () => {
-  return (
-    <DividerContainer>
-      <DividerLine />
-      <DividerSquare />
-      <DividerLine />
-    </DividerContainer>
-  )
+	return (
+		<DividerContainer>
+			<DividerLine />
+			<DividerSquare />
+			<DividerLine />
+		</DividerContainer>
+	)
 }
 
 export default Divider
