@@ -124,7 +124,7 @@ export default function Contact() {
 				<SocialMedia>
 					<Link
 						href="https://www.instagram.com/ferda_borisjuk/"
-						arial-label="Instagram"
+						arial-label="Frank Borisjuk's Instagram"
 						target="_blank"
 						rel="noreferrer"
 					>
@@ -132,7 +132,7 @@ export default function Contact() {
 					</Link>
 					<Link
 						href="https://github.com/HangerThem"
-						arial-label="Github"
+						arial-label="Frank Borisjuk's GitHub"
 						target="_blank"
 						rel="noreferrer"
 					>
@@ -140,7 +140,7 @@ export default function Contact() {
 					</Link>
 					<Link
 						href="https://discord.com/users/495134242825699328"
-						arial-label="Discord"
+						arial-label="Frank Borisjuk's Discord"
 						target="_blank"
 						rel="noreferrer"
 					>
@@ -148,7 +148,7 @@ export default function Contact() {
 					</Link>
 					<Link
 						href="https://www.linkedin.com/in/franti%C5%A1ek-borisjuk-022686225/"
-						arial-label="Linkedin"
+						arial-label="Frank Borisjuk's LinkedIn"
 						target="_blank"
 						rel="noreferrer"
 					>

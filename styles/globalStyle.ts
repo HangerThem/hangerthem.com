@@ -4,9 +4,9 @@ import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --primary: 201, 14, 14;
+    --primary: 239, 31, 31;
     --white: 255, 255, 255;
-    --black: 0, 0, 0;
+    --black: 5, 5, 5;
     --background: 217, 217, 217;
     --accent: 104, 104, 104;
   }
