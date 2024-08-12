@@ -37,7 +37,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 			text: message,
 		})
 
-		return successResponse("Email sent successfully")
+		return successResponse({ message: "Email sent successfully" })
 	} catch (e) {
 		console.error(e)
 		return internalServerErrorResponse()

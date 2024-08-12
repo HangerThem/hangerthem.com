@@ -32,7 +32,7 @@ const projects: Project[] = [
 	{
 		title: "HangerThem Portfolio",
 		description: "This very website and my personal portfolio.",
-		// image: "/hangerthem.png",
+		image: "/hangerthem.png",
 		techStack: ["Next.js", "TypeScript", "Styled Components"],
 		href: "https://hangerthem.com",
 		source: "https://github.com/HangerThem/hangerthem.com",
