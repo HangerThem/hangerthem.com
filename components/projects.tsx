@@ -173,6 +173,7 @@ const ViewLink = styled(Link)`
 
 	&:hover {
 		background-color: rgb(var(--primary));
+		color: rgb(var(--white));
 	}
 
 	@media (max-width: 1200px) {
