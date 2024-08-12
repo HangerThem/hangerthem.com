@@ -41,12 +41,20 @@ export default function Footer() {
 			<FooterContent>
 				<p>
 					Made with ❤️ by{" "}
-					<Link href="https://github.com/HangerThem">Frank Borisjuk</Link>
+					<Link
+						href="https://github.com/HangerThem"
+						aria-label="Frank Borisjuk's GitHub"
+					>
+						Frank Borisjuk
+					</Link>
 				</p>
 				<p>&copy; 2024 - All rights reserved</p>
 				<p>
 					Sources available on{" "}
-					<Link href="https://github.com/HangerThem/hangerthem.com">
+					<Link
+						href="https://github.com/HangerThem/hangerthem.com"
+						aria-label="This site's repository on GitHub"
+					>
 						GitHub
 					</Link>
 				</p>

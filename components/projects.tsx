@@ -269,6 +269,7 @@ const Projects = () => {
 											href={project.href}
 											target="_blank"
 											title="View Project"
+											arial-label="View Project"
 										>
 											View Project
 										</ViewLink>
@@ -277,6 +278,7 @@ const Projects = () => {
 										href={project.source}
 										target="_blank"
 										title="View Source"
+										arial-label="View Source"
 									>
 										<Git size={30} />
 									</SourceLink>
@@ -284,10 +286,10 @@ const Projects = () => {
 							</ProjectCard>
 						))}
 					</CarouselWrapper>
-					<PrevButton onClick={handlePrev}>
+					<PrevButton onClick={handlePrev} aria-label="Previous Project">
 						<CaretLeftFill size={50} />
 					</PrevButton>
-					<NextButton onClick={handleNext}>
+					<NextButton onClick={handleNext} aria-label="Next Project">
 						<CaretRightFill size={50} />
 					</NextButton>
 					<CarouselIndicator>

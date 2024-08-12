@@ -90,6 +90,7 @@ export default function About() {
 					I&apos;ve built{" "}
 					<Link
 						href="https://github.com/HangerThem/linkboard"
+						aria-label="Linkboard a cool alternative to Linktree"
 						referrerPolicy="no-referrer"
 						target="_blank"
 					>
@@ -98,6 +99,7 @@ export default function About() {
 					, a cool alternative to Linktree, and I&apos;m currently developing{" "}
 					<Link
 						href="https://github.com/HangerThem/ephemr"
+						aria-label="Ephemr a simple social network"
 						referrerPolicy="no-referrer"
 						target="_blank"
 					>

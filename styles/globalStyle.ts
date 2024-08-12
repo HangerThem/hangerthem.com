@@ -56,4 +56,8 @@ export const GlobalStyle = createGlobalStyle`
       color: rgb(var(--primary), 0.8);
     }
   }
+
+  .grecaptcha-badge { 
+    visibility: hidden !important;
+}
 `

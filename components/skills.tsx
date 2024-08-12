@@ -100,7 +100,7 @@ export default function Skills() {
 				<Categories>
 					{skills.languages && (
 						<SkillCategory>
-							<h4>Languages</h4>
+							<h3>Languages</h3>
 							<ul>
 								{skills.languages.map((language, index) => (
 									<li key={index}>
@@ -115,7 +115,7 @@ export default function Skills() {
 					)}
 					{skills.programmingLanguages && (
 						<SkillCategory>
-							<h4>Programming Languages</h4>
+							<h3>Programming Languages</h3>
 							<ul>
 								{skills.programmingLanguages.map(
 									(programmingLanguage, index) => (
@@ -132,7 +132,7 @@ export default function Skills() {
 					)}
 					{skills.technologies && (
 						<SkillCategory>
-							<h4>Technologies</h4>
+							<h3>Technologies</h3>
 							<ul>
 								{skills.technologies.map((technology, index) => (
 									<li key={index}>
@@ -147,7 +147,7 @@ export default function Skills() {
 					)}
 					{skills.tools && (
 						<SkillCategory>
-							<h4>Tools</h4>
+							<h3>Tools</h3>
 							<ul>
 								{skills.tools.map((tool, index) => (
 									<li key={index}>

@@ -348,7 +348,9 @@ const Navbar = () => {
 		<NavbarContainer>
 			<Topbar>
 				<Title>
-					<Link href="/">HangerThem</Link>
+					<Link href="/" aria-label="HangerThem's Home Page">
+						HangerThem
+					</Link>
 				</Title>
 				<HamburgerWrapper
 					ref={hanburgerRef}
@@ -364,6 +366,7 @@ const Navbar = () => {
 						<li key={link.id}>
 							<Link
 								href={link.href}
+								arial-label={link.text}
 								className={navState.activeTag === link.id ? "active" : ""}
 								onClick={() =>
 									setNavState((prev) => ({ ...prev, activeTag: link.id }))
@@ -376,7 +379,11 @@ const Navbar = () => {
 				</LinksContainer>
 				<SocialLinksContainer>
 					{socialLinks.map((socialLink) => (
-						<Link key={socialLink.id} href={socialLink.href}>
+						<Link
+							key={socialLink.id}
+							href={socialLink.href}
+							aria-label={socialLink.text}
+						>
 							{socialLink.icon}
 							{socialLink.text}
 						</Link>

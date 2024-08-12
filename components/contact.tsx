@@ -115,6 +115,7 @@ export default function Contact() {
 					<button
 						type="submit"
 						disabled={!data.name || !data.email || !data.message || loading}
+						aria-label="Send email"
 					>
 						{loading ? "Sending..." : "Send"}
 					</button>
@@ -123,6 +124,7 @@ export default function Contact() {
 				<SocialMedia>
 					<Link
 						href="https://www.instagram.com/ferda_borisjuk/"
+						arial-label="Instagram"
 						target="_blank"
 						rel="noreferrer"
 					>
@@ -130,6 +132,7 @@ export default function Contact() {
 					</Link>
 					<Link
 						href="https://github.com/HangerThem"
+						arial-label="Github"
 						target="_blank"
 						rel="noreferrer"
 					>
@@ -137,6 +140,7 @@ export default function Contact() {
 					</Link>
 					<Link
 						href="https://discord.com/users/495134242825699328"
+						arial-label="Discord"
 						target="_blank"
 						rel="noreferrer"
 					>
@@ -144,6 +148,7 @@ export default function Contact() {
 					</Link>
 					<Link
 						href="https://www.linkedin.com/in/franti%C5%A1ek-borisjuk-022686225/"
+						arial-label="Linkedin"
 						target="_blank"
 						rel="noreferrer"
 					>
