@@ -2,31 +2,12 @@ import {
 	successResponse,
 	optionsResponse,
 	badRequestResponse,
-	tooManyRequestsResponse,
 	internalServerErrorResponse,
 } from "@/helpers/apiHelper"
 import { NextRequest, NextResponse } from "next/server"
 import { sendEmail } from "@/utils/emailUtils"
-import rateLimit from "express-rate-limit"
-
-const limiter = rateLimit({
-	windowMs: 15 * 60 * 1000,
-	max: 100,
-	message: "Too many requests, please try again later.",
-})
 
 export async function POST(req: NextRequest, res: NextResponse) {
-	if (process.env.NODE_ENV !== "development") {
-		await new Promise((resolve, reject) => {
-			limiter(req, res, (result: any) => {
-				if (result instanceof Error) {
-					return tooManyRequestsResponse()
-				}
-				resolve(result)
-			})
-		})
-	}
-
 	try {
 		const { email, name, message, recaptchaToken } = await req.json()
 

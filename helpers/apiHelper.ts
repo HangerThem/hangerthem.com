@@ -36,10 +36,6 @@ export function badRequestResponse(errorMessage?: string | {}) {
 	return jsonResponse(400, { error: errorMessage ?? "Bad request" })
 }
 
-export function tooManyRequestsResponse() {
-	return jsonResponse(429, { error: "Too many requests" })
-}
-
 export function internalServerErrorResponse() {
 	return jsonResponse(500, { error: "Internal server error" })
 }
