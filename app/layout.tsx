@@ -3,6 +3,7 @@ import { GlobalStyle } from "@/styles/globalStyle"
 import StyledComponentsRegistry from "@/lib/registry"
 import { ReCaptchaProvider } from "next-recaptcha-v3"
 import { K2D } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 
 const k2d = K2D({
 	weight: ["400", "500", "600"],
@@ -53,7 +54,10 @@ export default function RootLayout({
 			<ReCaptchaProvider>
 				<StyledComponentsRegistry>
 					<GlobalStyle />
-					<body>{children}</body>
+					<body>
+						<Analytics />
+						{children}
+					</body>
 				</StyledComponentsRegistry>
 			</ReCaptchaProvider>
 		</html>
