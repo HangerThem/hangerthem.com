@@ -10,6 +10,24 @@ type Project = {
 
 const projects: Project[] = [
 	{
+		title: "Ephemr",
+		description:
+			"A simple social network, a place to share your thoughts with the world.",
+		image: "/ephemr.png",
+		techStack: [
+			"Next.js",
+			"TypeScript",
+			"Styled Components",
+			"Socket.IO",
+			"Prisma",
+			"PostgreSQL",
+			"JWT",
+		],
+		href: "https://ephemr.net",
+		source: "https://github.com/HangerThem/ephemr",
+		state: "wip",
+	},
+	{
 		title: "HangerThem Portfolio",
 		description: "This very website and my personal portfolio.",
 		// image: "/hangerthem.png",
@@ -29,16 +47,6 @@ const projects: Project[] = [
 		state: "done",
 	},
 	{
-		title: "Ephemr",
-		description:
-			"A simple social network, a place to share your thoughts with the world.",
-		image: "/ephemr.png",
-		techStack: ["Next.js", "TypeScript", "Styled Components", "Socket.IO"],
-		href: "https://ephemr.net",
-		source: "https://github.com/HangerThem/ephemr",
-		state: "wip",
-	},
-	{
 		title: "Evolution algorithm Flappy Bird",
 		description:
 			"A Flappy Bird clone with an AI that uses an evolution algorithm to play the game.",
@@ -48,13 +56,7 @@ const projects: Project[] = [
 		source: "https://github.com/HangerThem/js-flappy-bird-ea",
 		state: "done",
 	},
-	{
-		title: "Peer to Peer Chat",
-		description: "A simple peer-to-peer chat application.",
-		techStack: ["Python"],
-		source: "https://github.com/HangerThem/python-p2p-real-time-chat",
-		state: "wip",
-	},
+
 	{
 		title: "Simple 2D physics engine",
 		description: "A simple 2D physics engine written in JavaScript.",
@@ -62,6 +64,13 @@ const projects: Project[] = [
 		techStack: ["JavaScript"],
 		href: "https://hangerthem.github.io/2d-physics-engine/",
 		source: "https://hangerthem.github.io/js-2D-physic-engine/",
+		state: "wip",
+	},
+	{
+		title: "Peer to Peer Chat",
+		description: "A simple peer-to-peer chat application.",
+		techStack: ["Python"],
+		source: "https://github.com/HangerThem/python-p2p-real-time-chat",
 		state: "wip",
 	},
 ]

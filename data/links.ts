@@ -21,6 +21,11 @@ const links: Link[] = [
 		text: "Skills",
 	},
 	{
+		id: "projects",
+		href: "#projects",
+		text: "Projects",
+	},
+	{
 		id: "contact",
 		href: "#contact",
 		text: "Contact me",

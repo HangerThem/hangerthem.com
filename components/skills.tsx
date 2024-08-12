@@ -32,6 +32,7 @@ const Categories = styled.div`
 	width: 100%;
 	display: flex;
 	flex-direction: column;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: center;
 	gap: 2rem;
@@ -48,6 +49,7 @@ const SkillCategory = styled.div`
 	flex-direction: column;
 	align-items: center;
 	gap: 2rem;
+	flex: 1;
 
 	h3 {
 		font-size: 1.75rem;

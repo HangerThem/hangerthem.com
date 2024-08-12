@@ -5,6 +5,7 @@ import { useState } from "react"
 import { CaretLeftFill, CaretRightFill, Git } from "react-bootstrap-icons"
 import projects from "@/data/projects"
 import Link from "next/link"
+import Image from "next/image"
 
 const ProjectsContainer = styled.section`
 	width: 100%;
@@ -15,6 +16,11 @@ const ProjectsContainer = styled.section`
 	align-items: center;
 	justify-content: center;
 	gap: 2rem;
+
+	@media (max-width: 1200px) {
+		padding: 1rem;
+		gap: 1rem;
+	}
 `
 
 const ProjectsContent = styled.div`
@@ -27,23 +33,36 @@ const ProjectsContent = styled.div`
 	h2 {
 		font-size: 3rem;
 		font-weight: 600;
+
+		@media (max-width: 1200px) {
+			font-size: 2rem;
+		}
 	}
 
 	p {
 		font-size: 1.2rem;
 		font-weight: 400;
-	}
-`
 
-const CarouselContainer = styled.div`
-	width: 100%;
-	position: relative;
+		@media (max-width: 1200px) {
+			font-size: 1rem;
+		}
+	}
 `
 
 const CarouselWrapper = styled.div`
 	display: flex;
 	transition: transform 0.5s ease-in-out;
 	gap: 2rem;
+
+	@media (max-width: 1200px) {
+		flex-direction: column;
+		align-items: center;
+	}
+`
+
+const CarouselContainer = styled.div`
+	width: 100%;
+	position: relative;
 `
 
 const ProjectCard = styled.div`
@@ -61,52 +80,42 @@ const ProjectCard = styled.div`
 	h3 {
 		font-size: 2rem;
 		font-weight: 600;
+
+		@media (max-width: 1200px) {
+			font-size: 1.5rem;
+		}
 	}
 
 	p {
 		font-size: 1.2rem;
 		font-weight: 400;
-	}
 
-	a {
-		font-size: 1.2rem;
-		font-weight: 600;
-		color: rgb(var(--white));
-		background-color: rgb(var(--blue));
-		padding: 0.5rem 1rem;
-		border-radius: 0.25rem;
-		text-decoration: none;
-		transition: background-color 0.2s;
-
-		&:hover {
-			background-color: rgb(var(--light-blue));
+		@media (max-width: 1200px) {
+			font-size: 1rem;
 		}
 	}
 
 	img {
-		width: 200px;
+		width: 100%;
 		height: 200px;
 		object-fit: cover;
 		border-radius: 1rem;
+
+		@media (max-width: 1200px) {
+			height: 150px;
+		}
 	}
 
 	&:not(.active) {
 		opacity: 0.5;
 		transform: scale(0.8);
 	}
-`
 
-const StateIndicator = styled.div`
-	position: absolute;
-	top: -1rem;
-	right: -1rem;
-	font-size: 1.5rem;
-	text-align: center;
-	line-height: 3rem;
-	background-color: rgba(var(--white));
-	border-radius: 50%;
-	width: 3rem;
-	height: 3rem;
+	@media (max-width: 1200px) {
+		width: 100%;
+		height: auto;
+		padding: 1rem;
+	}
 `
 
 const NavigationButton = styled.button`
@@ -124,6 +133,10 @@ const NavigationButton = styled.button`
 	&:hover {
 		color: rgb(var(--white));
 	}
+
+	@media (max-width: 1200px) {
+		display: none;
+	}
 `
 
 const PrevButton = styled(NavigationButton)`
@@ -139,6 +152,10 @@ const CarouselIndicator = styled.div`
 	justify-content: center;
 	gap: 0.5rem;
 	margin-top: 1rem;
+
+	@media (max-width: 1200px) {
+		margin-top: 0.5rem;
+	}
 `
 
 const IndicatorDot = styled.div`
@@ -151,6 +168,11 @@ const IndicatorDot = styled.div`
 	&.active {
 		background-color: rgb(var(--white));
 	}
+
+	@media (max-width: 1200px) {
+		width: 8px;
+		height: 8px;
+	}
 `
 
 const TechStack = styled.div`
@@ -159,12 +181,70 @@ const TechStack = styled.div`
 	gap: 0.5rem;
 
 	span {
-		font-size: 1rem;
+		font-size: 0.8rem;
 		font-weight: 400;
 		background-color: rgba(var(--white), 0.1);
 		padding: 0.25rem 0.5rem;
 		border-radius: 0.25rem;
+
+		@media (max-width: 1200px) {
+			font-size: 0.7rem;
+			padding: 0.2rem 0.4rem;
+		}
 	}
+`
+
+const Links = styled.div`
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 1rem;
+	margin-top: auto;
+`
+
+const ViewLink = styled(Link)`
+	font-size: 1.2rem;
+	font-weight: 600;
+	color: rgb(var(--white));
+	background-color: rgba(var(--primary), 0.8);
+	padding: 0.5rem 1rem;
+	border-radius: 0.25rem;
+	text-decoration: none;
+	transition: background-color 0.2s;
+
+	&:hover {
+		background-color: rgb(var(--primary));
+	}
+
+	@media (max-width: 1200px) {
+		font-size: 1rem;
+		padding: 0.4rem 0.8rem;
+	}
+`
+
+const SourceLink = styled(Link)`
+	svg {
+		transition: color 0.3s;
+		color: rgba(var(--white), 0.8);
+	}
+
+	&:hover svg {
+		color: rgb(var(--white));
+	}
+
+	@media (max-width: 1200px) {
+		svg {
+			width: 25px;
+			height: 25px;
+		}
+	}
+`
+
+const StateIndicator = styled.div`
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	font-size: 1.5rem;
 `
 
 const Projects = () => {
@@ -188,7 +268,7 @@ const Projects = () => {
 	}
 
 	return (
-		<ProjectsContainer>
+		<ProjectsContainer id="projects">
 			<ProjectsContent>
 				<h2>📂 My Projects</h2>
 				<p>Here are some of the projects I&apos;ve worked on recently</p>
@@ -206,12 +286,17 @@ const Projects = () => {
 									}
 								}}
 							>
-								<StateIndicator>
+								<StateIndicator title="Project State">
 									{project.state === "wip" ? "🔄" : "✅"}
 								</StateIndicator>
 								<h3>{project.title}</h3>
 								{project.image && (
-									<img src={project.image} alt={project.title} />
+									<Image
+										src={project.image}
+										alt={project.title}
+										width={400}
+										height={200}
+									/>
 								)}
 								<p>{project.description}</p>
 								<TechStack>
@@ -219,10 +304,24 @@ const Projects = () => {
 										<span key={index}>{tech}</span>
 									))}
 								</TechStack>
-								{project.href && <Link href={project.href}>View Project</Link>}
-								<Link href={project.source}>
-									<Git />
-								</Link>
+								<Links>
+									{project.href && (
+										<ViewLink
+											href={project.href}
+											target="_blank"
+											title="View Project"
+										>
+											View Project
+										</ViewLink>
+									)}
+									<SourceLink
+										href={project.source}
+										target="_blank"
+										title="View Source"
+									>
+										<Git size={30} />
+									</SourceLink>
+								</Links>
 							</ProjectCard>
 						))}
 					</CarouselWrapper>

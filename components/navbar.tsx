@@ -168,6 +168,14 @@ const SocialLinksContainer = styled.div`
 			color: rgb(var(--white));
 		}
 	}
+
+	@media (min-width: 768px) {
+		display: none;
+	}
+
+	@media (min-width: 820px) {
+		display: flex;
+	}
 `
 
 const Topbar = styled.div`
