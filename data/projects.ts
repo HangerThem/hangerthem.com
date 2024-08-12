@@ -22,6 +22,8 @@ const projects: Project[] = [
 			"Prisma",
 			"PostgreSQL",
 			"JWT",
+			"Nodemailer",
+			"Node.js",
 		],
 		href: "https://ephemr.net",
 		source: "https://github.com/HangerThem/ephemr",
@@ -44,6 +46,16 @@ const projects: Project[] = [
 		techStack: ["Next.js", "TypeScript", "Styled Components"],
 		href: "https://socials.hangerthem.com",
 		source: "https://github.com/HangerThem/linkboard",
+		state: "done",
+	},
+	{
+		title: "Ephemeris",
+		description:
+			"My personal blog, a place where I write about tech, programming, and other stuff.",
+		image: "/ephemeris.png",
+		techStack: ["Jekyll", "Markdown"],
+		href: "https://blog.hangerthem.com",
+		source: "https://github.com/HangerThem/ephemeris",
 		state: "done",
 	},
 	{

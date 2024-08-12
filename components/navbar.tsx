@@ -1,7 +1,7 @@
 "use client"
 
 import styled, { keyframes } from "styled-components"
-import { useRef, useState, useEffect } from "react"
+import { useRef, useState, useEffect, useCallback } from "react"
 import links from "@/data/links"
 import socialLinks from "@/data/socialLinks"
 import Link from "next/link"
@@ -28,7 +28,7 @@ const reverseRipple = keyframes`
 
 const NavbarContainer = styled.nav`
 	width: 100%;
-	padding: 2rem;
+	padding: 1rem 2rem;
 	display: flex;
 	justify-content: space-between;
 	flex-direction: column;
@@ -161,7 +161,6 @@ const SocialLinksContainer = styled.div`
 		justify-content: center;
 		gap: 0.5rem;
 		color: rgba(var(--white), 0.8);
-		transition: all 0.3s ease;
 		text-decoration: none;
 
 		&:hover {
@@ -173,7 +172,7 @@ const SocialLinksContainer = styled.div`
 		display: none;
 	}
 
-	@media (min-width: 820px) {
+	@media (min-width: 980px) {
 		display: flex;
 	}
 `
@@ -279,65 +278,71 @@ const Hamburger = styled.div`
 
 const Navbar = () => {
 	const hanburgerRef = useRef<HTMLDivElement>(null)
-	const [open, setOpen] = useState(false)
-	const [closing, setClosing] = useState(false)
-	const [visible, setVisible] = useState(false)
-	const [activeTag, setActiveTag] = useState("home")
+	const [navState, setNavState] = useState({
+		open: false,
+		closing: false,
+		visible: false,
+		activeTag: "home",
+	})
 
-	const handleClick = () => {
-		if (open) {
-			setOpen(false)
-			setClosing(true)
+	const handleClick = useCallback(() => {
+		if (navState.open) {
+			setNavState((prev) => ({ ...prev, open: false, closing: true }))
 			setTimeout(() => {
-				setVisible(false)
+				setNavState((prev) => ({ ...prev, visible: false }))
 			}, 200)
 			setTimeout(() => {
-				setClosing(false)
+				setNavState((prev) => ({ ...prev, closing: false }))
 			}, 500)
 			document.body.style.overflow = "auto"
 		} else {
-			setOpen(true)
+			setNavState((prev) => ({ ...prev, open: true }))
 			setTimeout(() => {
-				setVisible(true)
+				setNavState((prev) => ({ ...prev, visible: true }))
 			}, 300)
 			document.body.style.overflow = "hidden"
 		}
-	}
+	}, [navState.open])
 
-	useEffect(() => {
-		const handleResize = () => {
-			setOpen(false)
-			setClosing(false)
-			setVisible(false)
-			document.body.style.overflow = "auto"
-		}
-
-		window.addEventListener("resize", handleResize)
-		return () => window.removeEventListener("resize", handleResize)
+	const handleResize = useCallback(() => {
+		setNavState((prev) => ({
+			...prev,
+			open: false,
+			visible: false,
+			closing: false,
+		}))
+		document.body.style.overflow = "auto"
 	}, [])
 
-	useEffect(() => {
-		const handleClickOutside = (e: MouseEvent) => {
-			if (!open) return
+	const handleClickOutside = useCallback(
+		(e: MouseEvent) => {
+			if (!navState.open) return
 			if (
 				hanburgerRef.current &&
 				!hanburgerRef.current.contains(e.target as Node)
 			) {
-				setOpen(false)
-				setClosing(true)
+				setNavState((prev) => ({ ...prev, open: false, closing: true }))
 				setTimeout(() => {
-					setVisible(false)
+					setNavState((prev) => ({ ...prev, visible: false }))
 				}, 200)
 				setTimeout(() => {
-					setClosing(false)
+					setNavState((prev) => ({ ...prev, closing: false }))
 				}, 500)
 				document.body.style.overflow = "auto"
 			}
-		}
+		},
+		[navState.open]
+	)
 
+	useEffect(() => {
+		window.addEventListener("resize", handleResize)
+		return () => window.removeEventListener("resize", handleResize)
+	}, [handleResize])
+
+	useEffect(() => {
 		window.addEventListener("click", handleClickOutside)
 		return () => window.removeEventListener("click", handleClickOutside)
-	}, [open])
+	}, [navState.open, handleClickOutside])
 
 	return (
 		<NavbarContainer>
@@ -348,19 +353,21 @@ const Navbar = () => {
 				<HamburgerWrapper
 					ref={hanburgerRef}
 					onClick={handleClick}
-					className={open ? "open" : closing ? "closing" : ""}
+					className={navState.open ? "open" : navState.closing ? "closing" : ""}
 				>
-					<Hamburger className={open ? "open" : ""} />
+					<Hamburger className={navState.open ? "open" : ""} />
 				</HamburgerWrapper>
 			</Topbar>
-			<LinksWrapper className={visible ? "visible" : ""}>
+			<LinksWrapper className={navState.visible ? "visible" : ""}>
 				<LinksContainer>
 					{links.map((link) => (
 						<li key={link.id}>
 							<Link
 								href={link.href}
-								className={activeTag === link.id ? "active" : ""}
-								onClick={() => setActiveTag(link.id)}
+								className={navState.activeTag === link.id ? "active" : ""}
+								onClick={() =>
+									setNavState((prev) => ({ ...prev, activeTag: link.id }))
+								}
 							>
 								{link.text}
 							</Link>

@@ -1,4 +1,4 @@
-import { Github } from "react-bootstrap-icons"
+import { Github, JournalAlbum } from "react-bootstrap-icons"
 
 type SocialLink = {
 	id: string
@@ -13,6 +13,12 @@ const socialLink: SocialLink[] = [
 		href: "https://github.com/HangerThem",
 		text: "GitHub",
 		icon: <Github />,
+	},
+	{
+		id: "blog",
+		href: "https://blog.hangerthem.com",
+		text: "Blog",
+		icon: <JournalAlbum />,
 	},
 ]
 

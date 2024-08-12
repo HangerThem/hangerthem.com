@@ -1,53 +1,12 @@
 "use client"
 
 import styled from "styled-components"
-import { useState } from "react"
+import { useCallback, useState } from "react"
 import { CaretLeftFill, CaretRightFill, Git } from "react-bootstrap-icons"
 import projects from "@/data/projects"
 import Link from "next/link"
 import Image from "next/image"
-
-const ProjectsContainer = styled.section`
-	width: 100%;
-	min-height: 100vh;
-	padding: 2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2rem;
-
-	@media (max-width: 1200px) {
-		padding: 1rem;
-		gap: 1rem;
-	}
-`
-
-const ProjectsContent = styled.div`
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	gap: 2rem;
-
-	h2 {
-		font-size: 3rem;
-		font-weight: 600;
-
-		@media (max-width: 1200px) {
-			font-size: 2rem;
-		}
-	}
-
-	p {
-		font-size: 1.2rem;
-		font-weight: 400;
-
-		@media (max-width: 1200px) {
-			font-size: 1rem;
-		}
-	}
-`
+import { Container, Content } from "@/styles/pageStyles"
 
 const CarouselWrapper = styled.div`
 	display: flex;
@@ -251,25 +210,25 @@ const Projects = () => {
 	const [currentIndex, setCurrentIndex] = useState(0)
 	const projectCount = projects.length
 
-	const handlePrev = () => {
+	const handlePrev = useCallback(() => {
 		setCurrentIndex(
 			(prevIndex) => (prevIndex - 1 + projectCount) % projectCount
 		)
-	}
+	}, [projectCount])
 
-	const handleNext = () => {
+	const handleNext = useCallback(() => {
 		setCurrentIndex((prevIndex) => (prevIndex + 1) % projectCount)
-	}
+	}, [projectCount])
 
-	const getVisibleProjects = () => {
+	const getVisibleProjects = useCallback(() => {
 		const prevIndex = (currentIndex - 1 + projectCount) % projectCount
 		const nextIndex = (currentIndex + 1) % projectCount
 		return [projects[prevIndex], projects[currentIndex], projects[nextIndex]]
-	}
+	}, [currentIndex, projectCount])
 
 	return (
-		<ProjectsContainer id="projects">
-			<ProjectsContent>
+		<Container id="projects">
+			<Content>
 				<h2>📂 My Projects</h2>
 				<p>Here are some of the projects I&apos;ve worked on recently</p>
 				<CarouselContainer>
@@ -341,8 +300,8 @@ const Projects = () => {
 						))}
 					</CarouselIndicator>
 				</CarouselContainer>
-			</ProjectsContent>
-		</ProjectsContainer>
+			</Content>
+		</Container>
 	)
 }
 

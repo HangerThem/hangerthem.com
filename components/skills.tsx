@@ -2,31 +2,7 @@
 
 import styled from "styled-components"
 import skills from "@/data/skills"
-
-const SkillsContainer = styled.section`
-	width: 100%;
-	min-height: 100vh;
-	padding: 2rem;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	gap: 2rem;
-
-	h2 {
-		font-size: 3rem;
-		font-weight: 600;
-	}
-
-	p {
-		font-size: 1.2rem;
-		font-weight: 400;
-	}
-
-	@media (min-width: 768px) {
-		padding: 4rem;
-	}
-`
+import { Container, Content } from "@/styles/pageStyles"
 
 const Categories = styled.div`
 	width: 100%;
@@ -51,9 +27,13 @@ const SkillCategory = styled.div`
 	gap: 2rem;
 	flex: 1;
 
-	h3 {
-		font-size: 1.75rem;
+	h4 {
+		font-size: 1rem;
 		font-weight: 600;
+
+		@media (min-width: 768px) {
+			font-size: 1.5rem;
+		}
 	}
 
 	ul {
@@ -70,12 +50,6 @@ const SkillCategory = styled.div`
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-		}
-	}
-
-	@media (min-width: 768px) {
-		h3 {
-			font-size: 2rem;
 		}
 	}
 `
@@ -115,75 +89,79 @@ export default function Skills() {
 	skills.tools.sort((a, b) => b.persentage - a.persentage)
 
 	return (
-		<SkillsContainer id="skills">
-			<h2>🎖️ Skills</h2>
-			<p>
-				Here are some of the languages, technologies, and tools that I have
-				experience with. I am always learning new things and I am excited to
-				learn more!
-			</p>
-			<Categories>
-				{skills.languages && (
-					<SkillCategory>
-						<h3>Languages</h3>
-						<ul>
-							{skills.languages.map((language, index) => (
-								<li key={index}>
-									<span>
-										{language.name} - {language.level}
-									</span>
-									<SkillOMeter $level={language.persentage} />
-								</li>
-							))}
-						</ul>
-					</SkillCategory>
-				)}
-				{skills.programmingLanguages && (
-					<SkillCategory>
-						<h3>Programming Languages</h3>
-						<ul>
-							{skills.programmingLanguages.map((programmingLanguage, index) => (
-								<li key={index}>
-									<span>
-										{programmingLanguage.name} - {programmingLanguage.level}
-									</span>
-									<SkillOMeter $level={programmingLanguage.persentage} />
-								</li>
-							))}
-						</ul>
-					</SkillCategory>
-				)}
-				{skills.technologies && (
-					<SkillCategory>
-						<h3>Technologies</h3>
-						<ul>
-							{skills.technologies.map((technology, index) => (
-								<li key={index}>
-									<span>
-										{technology.name} - {technology.level}
-									</span>
-									<SkillOMeter $level={technology.persentage} />
-								</li>
-							))}
-						</ul>
-					</SkillCategory>
-				)}
-				{skills.tools && (
-					<SkillCategory>
-						<h3>Tools</h3>
-						<ul>
-							{skills.tools.map((tool, index) => (
-								<li key={index}>
-									<span>
-										{tool.name} - {tool.level}
-									</span>
-									<SkillOMeter $level={tool.persentage} />
-								</li>
-							))}
-						</ul>
-					</SkillCategory>
-				)}
-			</Categories>
-		</SkillsContainer>
+		<Container id="skills">
+			<Content>
+				<h2>🎖️ Skills</h2>
+				<p>
+					Here are some of the languages, technologies, and tools that I have
+					experience with. I am always learning new things and I am excited to
+					learn more!
+				</p>
+				<Categories>
+					{skills.languages && (
+						<SkillCategory>
+							<h4>Languages</h4>
+							<ul>
+								{skills.languages.map((language, index) => (
+									<li key={index}>
+										<span>
+											{language.name} - {language.level}
+										</span>
+										<SkillOMeter $level={language.persentage} />
+									</li>
+								))}
+							</ul>
+						</SkillCategory>
+					)}
+					{skills.programmingLanguages && (
+						<SkillCategory>
+							<h4>Programming Languages</h4>
+							<ul>
+								{skills.programmingLanguages.map(
+									(programmingLanguage, index) => (
+										<li key={index}>
+											<span>
+												{programmingLanguage.name} - {programmingLanguage.level}
+											</span>
+											<SkillOMeter $level={programmingLanguage.persentage} />
+										</li>
+									)
+								)}
+							</ul>
+						</SkillCategory>
+					)}
+					{skills.technologies && (
+						<SkillCategory>
+							<h4>Technologies</h4>
+							<ul>
+								{skills.technologies.map((technology, index) => (
+									<li key={index}>
+										<span>
+											{technology.name} - {technology.level}
+										</span>
+										<SkillOMeter $level={technology.persentage} />
+									</li>
+								))}
+							</ul>
+						</SkillCategory>
+					)}
+					{skills.tools && (
+						<SkillCategory>
+							<h4>Tools</h4>
+							<ul>
+								{skills.tools.map((tool, index) => (
+									<li key={index}>
+										<span>
+											{tool.name} - {tool.level}
+										</span>
+										<SkillOMeter $level={tool.persentage} />
+									</li>
+								))}
+							</ul>
+						</SkillCategory>
+					)}
+				</Categories>
+			</Content>
+		</Container>
 	)
 }

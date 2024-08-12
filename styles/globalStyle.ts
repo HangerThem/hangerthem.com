@@ -46,4 +46,14 @@ export const GlobalStyle = createGlobalStyle`
     background-color: rgb(var(--black));
     color: rgb(var(--white));
   }
+
+  a {
+    color: rgb(var(--primary));
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+
+    &:hover {
+      color: rgb(var(--primary), 0.8);
+    }
+  }
 `

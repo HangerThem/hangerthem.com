@@ -1,6 +1,10 @@
 "use client"
 
 import styled, { keyframes } from "styled-components"
+import {
+	Container as PrestyledContainer,
+	Content as PrestyledContent,
+} from "@/styles/pageStyles"
 import Image from "next/image"
 import confetti from "canvas-confetti"
 import Link from "next/link"
@@ -17,64 +21,40 @@ const wave = keyframes`
 	}
 `
 
-const AboutContainer = styled.section`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	padding: 2rem;
-	gap: 2rem;
-	min-height: 100vh;
-
+const Container = styled(PrestyledContainer)`
 	@media (min-width: 768px) {
 		flex-direction: row;
-		align-items: center;
 		justify-content: space-between;
-		padding: 4rem;
 	}
 `
 
-const AboutContent = styled.div`
-	display: flex;
-	flex-direction: column;
-	gap: 2rem;
+const Content = styled(PrestyledContent)`
+	align-items: flex-start;
 
 	h2 {
 		font-size: 1.75rem;
-		margin-left: 2.5rem;
-		font-weight: 600;
-		position: relative;
+		padding-left: 2rem;
+
+		@media (min-width: 768px) {
+			padding-left: 2rem;
+			font-size: 2rem;
+		}
 
 		&::before {
 			content: "👋";
 			position: absolute;
-			left: -3rem;
+			left: 1.75rem;
 			transform-origin: 70% 70%;
 			animation: ${wave} 1s ease-in-out infinite;
-		}
-	}
 
-	p {
-		font-size: 1.2rem;
-		font-weight: 400;
-
-		a {
-			color: rgb(var(--primary));
-			font-weight: 500;
-			text-decoration: none;
-
-			&:hover {
-				text-decoration: underline;
+			@media (min-width: 768px) {
+				left: 3rem;
 			}
 		}
 	}
 
 	@media (min-width: 768px) {
 		width: 50%;
-
-		h2 {
-			font-size: 2.5rem;
-		}
 	}
 `
 
@@ -99,8 +79,8 @@ const AboutImage = styled.div`
 
 export default function About() {
 	return (
-		<AboutContainer id="about">
-			<AboutContent>
+		<Container id="about">
+			<Content>
 				<h2>Hi! My name is Frank! </h2>
 				<p>
 					Hey there! I&apos;m Frank Borisjuk, a software developer from Czechia
@@ -142,7 +122,7 @@ export default function About() {
 					Thanks for visiting, and feel free to reach out if you want to connect
 					or collaborate!
 				</p>
-			</AboutContent>
+			</Content>
 			<AboutImage>
 				<Image
 					src="/borisjuk_01.png"
@@ -162,6 +142,6 @@ export default function About() {
 					}}
 				/>
 			</AboutImage>
-		</AboutContainer>
+		</Container>
 	)
 }
