@@ -70,7 +70,7 @@ The portfolio is a single-page application with a navbar for easy navigation bet
 
 ### Lighthouse Report
 
-![Lighthouse Report](./report.svg)
+![Lighthouse Report](https://lighthouse-report-svg.vercel.app/?perf=100&acc=92&best=100&seo=100&pwa=0)
 
 ## Contributing
 
