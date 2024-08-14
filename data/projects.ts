@@ -59,6 +59,16 @@ const projects: Project[] = [
 		state: "done",
 	},
 	{
+		title: "Lighthouse SVG report",
+		description: "A simple SVG report generator for Lighthouse reports.",
+		image:
+			"https://lighthouse-report-svg.vercel.app/?perf=100&acc=92&best=100&seo=100&pwa=0",
+		techStack: ["TypeScript", "Node.js", "Express"],
+		href: "https://lighthouse-report-svg.vercel.app",
+		source: "https://github.com/HangerThem/lighthouse-report-svg",
+		state: "done",
+	},
+	{
 		title: "Evolution algorithm Flappy Bird",
 		description:
 			"A Flappy Bird clone with an AI that uses an evolution algorithm to play the game.",

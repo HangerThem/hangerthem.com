@@ -11,10 +11,12 @@ import { Container, Content } from "@/styles/pageStyles"
 const CarouselWrapper = styled.div`
 	display: flex;
 	transition: transform 0.5s ease-in-out;
-	gap: 2rem;
+	flex-direction: column;
+	width: 100%;
+	gap: 1rem;
 
-	@media (max-width: 1200px) {
-		flex-direction: column;
+	@media (min-width: 1250px) {
+		flex-direction: row;
 		align-items: center;
 	}
 `
@@ -25,9 +27,9 @@ const CarouselContainer = styled.div`
 `
 
 const ProjectCard = styled.div`
-	padding: 2rem;
-	width: 400px;
-	height: 600px;
+	width: 100%;
+	height: auto;
+	padding: 1rem;
 	display: flex;
 	flex-direction: column;
 	gap: 1rem;
@@ -40,7 +42,7 @@ const ProjectCard = styled.div`
 		font-size: 2rem;
 		font-weight: 600;
 
-		@media (max-width: 1200px) {
+		@media (min-width: 1250px) {
 			font-size: 1.5rem;
 		}
 	}
@@ -49,20 +51,18 @@ const ProjectCard = styled.div`
 		font-size: 1.2rem;
 		font-weight: 400;
 
-		@media (max-width: 1200px) {
+		@media (min-width: 1250px) {
 			font-size: 1rem;
 		}
 	}
 
 	img {
 		width: 100%;
-		height: 200px;
-		object-fit: cover;
+		height: auto;
+		min-height: 150px;
+		max-height: 200px;
+		object-fit: contain;
 		border-radius: 1rem;
-
-		@media (max-width: 1200px) {
-			height: 150px;
-		}
 	}
 
 	&:not(.active) {
@@ -70,15 +70,16 @@ const ProjectCard = styled.div`
 		transform: scale(0.8);
 	}
 
-	@media (max-width: 1200px) {
-		width: 100%;
-		height: auto;
-		padding: 1rem;
+	@media (min-width: 1250px) {
+		padding: 2rem;
+		width: 400px;
+		height: 550px;
 	}
 `
 
 const NavigationButton = styled.button`
 	position: absolute;
+	display: none;
 	top: 50%;
 	transform: translateY(-50%);
 	border: none;
@@ -93,17 +94,17 @@ const NavigationButton = styled.button`
 		color: rgb(var(--white));
 	}
 
-	@media (max-width: 1200px) {
-		display: none;
+	@media (min-width: 1250px) {
+		display: block;
 	}
 `
 
 const PrevButton = styled(NavigationButton)`
-	left: 0;
+	left: -0.25rem;
 `
 
 const NextButton = styled(NavigationButton)`
-	right: 0;
+	right: -0.25rem;
 `
 
 const CarouselIndicator = styled.div`
@@ -112,7 +113,7 @@ const CarouselIndicator = styled.div`
 	gap: 0.5rem;
 	margin-top: 1rem;
 
-	@media (max-width: 1200px) {
+	@media (min-width: 1250px) {
 		margin-top: 0.5rem;
 	}
 `
@@ -128,7 +129,7 @@ const IndicatorDot = styled.div`
 		background-color: rgb(var(--white));
 	}
 
-	@media (max-width: 1200px) {
+	@media (min-width: 1250px) {
 		width: 8px;
 		height: 8px;
 	}
@@ -146,7 +147,7 @@ const TechStack = styled.div`
 		padding: 0.25rem 0.5rem;
 		border-radius: 0.25rem;
 
-		@media (max-width: 1200px) {
+		@media (min-width: 1250px) {
 			font-size: 0.7rem;
 			padding: 0.2rem 0.4rem;
 		}
@@ -176,7 +177,7 @@ const ViewLink = styled(Link)`
 		color: rgb(var(--white));
 	}
 
-	@media (max-width: 1200px) {
+	@media (min-width: 1250px) {
 		font-size: 1rem;
 		padding: 0.4rem 0.8rem;
 	}
@@ -192,7 +193,7 @@ const SourceLink = styled(Link)`
 		color: rgb(var(--white));
 	}
 
-	@media (max-width: 1200px) {
+	@media (min-width: 1250px) {
 		svg {
 			width: 25px;
 			height: 25px;
